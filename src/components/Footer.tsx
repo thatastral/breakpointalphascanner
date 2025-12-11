@@ -1,5 +1,3 @@
-import imgRectangle525 from "figma:asset/d9895db48705ab76464b9443a885cedbddc53a45.png";
-
 interface FooterProps {
   onDisclaimerClick: () => void;
 }
@@ -10,10 +8,11 @@ export function Footer({ onDisclaimerClick }: FooterProps) {
       {/* Logo and Tagline Section */}
       <div className="flex flex-col gap-4 items-center w-full">
         <div className="flex flex-col gap-[13px] items-center w-[211px]">
-          <div className="relative h-[33px] w-[211px]" data-name="Mask group">
-            <div 
-              className="absolute bg-[#160d22] h-[33px] left-[-4px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[4px] mask-size-[211px_24.939px] top-[-4px] w-[219px]" 
-              style={{ maskImage: `url('${imgRectangle525}')` }} 
+          <div className="relative h-[33px] w-[211px]" data-name="Breakpoint Logo">
+            <img 
+              alt="Breakpoint" 
+              className="absolute inset-0 w-full h-full object-contain" 
+              src="/assets/breakpoint-logo2.png" 
             />
           </div>
           
