@@ -1,1 +1,11 @@
-# repo-template
+
+  # Design Solana Breakpoint Scanner
+
+  This is a code bundle for Design Solana Breakpoint Scanner. The original project is available at https://www.figma.com/design/HqWFXiLu9OACbrsTO7a5oJ/Design-Solana-Breakpoint-Scanner.
+
+  ## Running the code
+
+  Run `npm i` to install the dependencies.
+
+  Run `npm run dev` to start the development server.
+  
