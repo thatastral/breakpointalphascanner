@@ -180,7 +180,7 @@ export default function AdminPanel() {
   };
 
   return (
-    <div className="min-h-screen bg-[#160d22] p-4 md:p-8">
+    <div className="min-h-screen bg-[#160d22] text-white p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
         {/* Back to Main App Link */}
         <div className="mb-6">
@@ -238,7 +238,7 @@ export default function AdminPanel() {
               <Button
                 onClick={fetchStats}
                 disabled={isLoadingStats}
-                className="bg-[#ac66fd] hover:bg-[#9b55ec] text-[#160d22]"
+                className="bg-[#ac66fd] hover:bg-[#9b55ec] text-white"
               >
                 {isLoadingStats ? 'Refreshing...' : 'Refresh Stats'}
               </Button>
@@ -493,11 +493,11 @@ export default function AdminPanel() {
                 <Button
                   type="submit"
                   disabled={isSubmitting || !title.trim()}
-                  className="w-full bg-[#ac66fd] hover:bg-[#9b55ec] text-[#160d22] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-[#ac66fd] hover:bg-[#9b55ec] text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="size-4 border-2 border-[#160d22]/30 border-t-[#160d22] rounded-full animate-spin" />
+                      <div className="size-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       Creating...
                     </>
                   ) : (
@@ -542,7 +542,7 @@ export default function AdminPanel() {
             </Card>
 
             {/* Info Box */}
-            <div className="p-4 bg-[#ac66fd]/10 border border-[#ac66fd]/20 text-[#857a8f] text-sm">
+            <div className="p-4 bg-[#ac66fd]/10 border border-[#ac66fd]/20 text-white text-sm">
               <p className="mb-2">
                 ℹ️ Posts created here will:
               </p>
