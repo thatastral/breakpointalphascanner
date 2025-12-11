@@ -1,6 +1,6 @@
 import svgPaths from "../imports/svg-qwe4kaq6s8";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import imgImage3 from "figma:asset/003bfa408c57f997f054358d69b2c663beacbb83.png";
+
 interface WelcomeModalProps {
   onClose: () => void;
 }
@@ -19,13 +19,13 @@ function Frame2() {
   return (
     <div className="content-stretch flex flex-col gap-[13px] items-center relative shrink-0 w-[211px]">
       <div className="aspect-[1396/165] relative shrink-0 w-full" data-name="image 3">
-        <div className="aspect-[1396/165] relative shrink-0 w-full" data-name="image 3">
-  <ImageWithFallback 
-    alt="Breakpoint" 
-    className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" 
-    src={imgImage3} 
-  />
-</div>
+        <img alt="Breakpoint" className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src={imgImage3} />
+      </div>
+      <Frame1 />
+    </div>
+  );
+}
+
 function Frame26() {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[236px]">
