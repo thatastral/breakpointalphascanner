@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { AlphaFeed } from './components/AlphaFeed';
 import { AlphaForm } from './components/AlphaForm';
 import { Header } from './components/Header';
@@ -27,12 +28,13 @@ const API_URL = `https://${projectId}.supabase.co/functions/v1/make-server-1c111
 
 export default function App() {
   // Check if admin mode is enabled via URL parameter
-const isAdminMode = new URLSearchParams(window.location.search).get('admin') === 'true';
+  const isAdminMode = new URLSearchParams(window.location.search).get('admin') === 'true';
+  
+  // If admin mode, render the admin panel instead
+  if (isAdminMode) {
+    return <AdminPanel />;
+  }
 
-// If admin mode, render the admin panel instead
-if (isAdminMode) {
-  return <AdminPanel />;
-}
   const [posts, setPosts] = useState<AlphaPost[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedFeed, setSelectedFeed] = useState<'official' | 'community'>('official');
@@ -194,6 +196,27 @@ if (isAdminMode) {
 
   return (
     <div className="bg-white min-h-screen flex flex-col relative">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Breakpoint Alpha Scanner - Solana Ecosystem Insights</title>
+        <meta name="title" content="Breakpoint Alpha Scanner - Solana Ecosystem Insights" />
+        <meta name="description" content="Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha." />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://breakpointalphascanner.vercel.app/" />
+        <meta property="og:title" content="Breakpoint Alpha Scanner - Solana Ecosystem Insights" />
+        <meta property="og:description" content="Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha." />
+        <meta property="og:image" content="https://breakpointalphascanner.vercel.app/assets/social-card.png" />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://breakpointalphascanner.vercel.app/" />
+        <meta property="twitter:title" content="Breakpoint Alpha Scanner - Solana Ecosystem Insights" />
+        <meta property="twitter:description" content="Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha." />
+        <meta property="twitter:image" content="https://breakpointalphascanner.vercel.app/assets/social-card.png" />
+      </Helmet>
+      
       <Banner />
       <div className="flex-1 w-full max-w-[1200px] mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12">
         <Header />
