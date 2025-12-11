@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { AlphaFeed } from './components/AlphaFeed';
 import { AlphaForm } from './components/AlphaForm';
 import { Header } from './components/Header';
@@ -82,6 +81,44 @@ export default function App() {
   // Fetch posts on mount
   useEffect(() => {
     fetchPosts();
+  }, []);
+
+  // Set up social meta tags
+  useEffect(() => {
+    // Update document title
+    document.title = 'Breakpoint Alpha Scanner - Solana Ecosystem Insights';
+    
+    // Helper function to set or update meta tags
+    const setMetaTag = (property: string, content: string, isProperty = false) => {
+      const attribute = isProperty ? 'property' : 'name';
+      let element = document.querySelector(`meta[${attribute}="${property}"]`);
+      
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, property);
+        document.head.appendChild(element);
+      }
+      
+      element.setAttribute('content', content);
+    };
+    
+    // Primary Meta Tags
+    setMetaTag('title', 'Breakpoint Alpha Scanner - Solana Ecosystem Insights');
+    setMetaTag('description', 'Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha.');
+    
+    // Open Graph / Facebook
+    setMetaTag('og:type', 'website', true);
+    setMetaTag('og:url', 'https://breakpointalphascanner.vercel.app/', true);
+    setMetaTag('og:title', 'Breakpoint Alpha Scanner - Solana Ecosystem Insights', true);
+    setMetaTag('og:description', 'Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha.', true);
+    setMetaTag('og:image', 'https://breakpointalphascanner.vercel.app/assets/social-card.png', true);
+    
+    // Twitter
+    setMetaTag('twitter:card', 'summary_large_image', true);
+    setMetaTag('twitter:url', 'https://breakpointalphascanner.vercel.app/', true);
+    setMetaTag('twitter:title', 'Breakpoint Alpha Scanner - Solana Ecosystem Insights', true);
+    setMetaTag('twitter:description', 'Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha.', true);
+    setMetaTag('twitter:image', 'https://breakpointalphascanner.vercel.app/assets/social-card.png', true);
   }, []);
 
   // Track page visit on mount
@@ -196,27 +233,6 @@ export default function App() {
 
   return (
     <div className="bg-white min-h-screen flex flex-col relative">
-      <Helmet>
-        {/* Primary Meta Tags */}
-        <title>Breakpoint Alpha Scanner - Solana Ecosystem Insights</title>
-        <meta name="title" content="Breakpoint Alpha Scanner - Solana Ecosystem Insights" />
-        <meta name="description" content="Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha." />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://breakpointalphascanner.vercel.app/" />
-        <meta property="og:title" content="Breakpoint Alpha Scanner - Solana Ecosystem Insights" />
-        <meta property="og:description" content="Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha." />
-        <meta property="og:image" content="https://breakpointalphascanner.vercel.app/assets/social-card.png" />
-        
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://breakpointalphascanner.vercel.app/" />
-        <meta property="twitter:title" content="Breakpoint Alpha Scanner - Solana Ecosystem Insights" />
-        <meta property="twitter:description" content="Live insights, announcements & early signals from the Solana ecosystem. Community-driven alpha." />
-        <meta property="twitter:image" content="https://breakpointalphascanner.vercel.app/assets/social-card.png" />
-      </Helmet>
-      
       <Banner />
       <div className="flex-1 w-full max-w-[1200px] mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12">
         <Header />
