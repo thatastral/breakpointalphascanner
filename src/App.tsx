@@ -8,6 +8,7 @@ import { WelcomeModal } from './components/WelcomeModal';
 import { Banner } from './components/Banner';
 import { Plus } from 'lucide-react';
 import { projectId, publicAnonKey } from './utils/supabase/info';
+import AdminPanel from './admin';
 
 export interface AlphaPost {
   id: string;
@@ -25,6 +26,13 @@ export interface AlphaPost {
 const API_URL = `https://${projectId}.supabase.co/functions/v1/make-server-1c111436`;
 
 export default function App() {
+  // Check if admin mode is enabled via URL parameter
+const isAdminMode = new URLSearchParams(window.location.search).get('admin') === 'true';
+
+// If admin mode, render the admin panel instead
+if (isAdminMode) {
+  return <AdminPanel />;
+}
   const [posts, setPosts] = useState<AlphaPost[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedFeed, setSelectedFeed] = useState<'official' | 'community'>('official');
