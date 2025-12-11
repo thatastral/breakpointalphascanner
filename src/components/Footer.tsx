@@ -49,7 +49,7 @@ export function Footer({ onDisclaimerClick }: FooterProps) {
         
         <p className="leading-[1.2] text-[12px] text-[rgba(17,17,17,0.5)] text-center">
           <span>Built by </span>
-          <span className="text-[rgba(17,17,17,0.8)]">Astral & Superteam Designers Nigeria</span>
+          <span className="text-[rgba(17,17,17,0.8)]"><a href="https://x.com/thatastral"Astral></a> & Superteam Nigeria Designers</span>
         </p>
       </div>
     </div>
